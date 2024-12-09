@@ -1,0 +1,27 @@
+ {% extends 'shop/base.html' %}
+
+{% block body %}
+
+<form action="/dogdry/search" method="post">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="iteamname">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form><br>
+{% if product %}
+  <div class="row">
+    {% for i in product %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{i.item_image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{i.item_id}}</h5>
+      <h6 class="card-text">{{i.item_name}}</h6>
+      <p class="card-text">{{i.item_desc}}</p>
+      <h2 class="card-text">{{i.item_price}}</h2>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+  {% endblock %}
+

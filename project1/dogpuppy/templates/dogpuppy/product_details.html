@@ -1,0 +1,108 @@
+{% extends 'shop/base.html' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    #O{
+      background-color: black;
+      border-radius: 10px;
+    }
+  </style>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<div id="O">
+  <form method="post">
+    {% csrf_token %}
+    <div class="container mt-5 shadow px-5 py-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+
+  
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+  {% for i in product %}
+  <tr>
+    <th scope="row"><img src="{{i.puppy_image.url}}" alt="" height="200px" width="200px"></th>
+    <td>{{i.puppy_name}}</td>
+    <td> {{i.puppy_price}}</td>
+    <td> {{i.puppy_desc}}</td>
+      <!-- <td><button formaction="/cart/delete" name="cid" value="{{i.id}}"  class="btn btn-primary">Delete</button></td> -->
+        </tr>
+    {% endfor %}
+    <tr>
+ <!--     <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td> -->
+    
+    </tr>
+  </tbody>
+  </table><br><br><br><br><br>
+ <!-- <center><button formaction="/order/checkout" class="btn btn-success">Checkout</button></center> -->
+  </div>
+  </form>
+</div><br>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #B{
+    
+    word-spacing: 3px;
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+  }
+</style>
+<body>
+  <div id="B">
+  <center><h5>Shop By Category</h5><br></center>
+  <h6>Dogs Food Category</h3>   
+    <a href="/dogdry/home">Dogs Dry Food</a> |           
+    <a href="/dogdry/home">Dogs Dry Food</a> |
+    <a href="/dogwet/home">Dogs Wet Food</a> |
+    <a href="/dogpuppy/home">Dogs Puppy Food</a> |
+    <a href="/doggrain/home">Dogs Grain Food</a> |
+    <a href="/dogbake/home">Dogs bake Food</a> |
+    <a href="/dogveg/home">Dogs Veg Food</a> |
+    <a href="/dogpremium/home">Dogs Premium Food</a> | <br><br>
+    <h6>Cats Food Category</h6>
+    <a href="/catdry/home">Cat Dry Food</a> |           
+    <a href="/catwet/home">Cat Wet Food</a> |
+    <a href="/kitten/home">Kitten Food</a> | <br><br>
+    <h6>Contact Us</h6>
+    <p>Gmail : giddepravin797@gmail.com | Contact No : 8010537525 | </p> <br><br>
+    <h6 > You can view your favourite brands with price options for different products in one place. A user-friendly interface will guide you through your selection process. Comprehensive size charts, product information and high-resolution images help you make the best buying decisions. You also have the freedom to choose your payment options, be it card or cash-on-delivery. The 14-day returns policy gives you more power as a buyer. Additionally, the try-and-buy option for select products takes customer-friendliness to the next level.</h6>
+</div>
+</body>
+</html>
+    {% endblock %}
