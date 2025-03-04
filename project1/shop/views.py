@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Product
+from django.contrib.auth.models import User
+from django.shortcuts import redirect
 # Create your views here.
 
 def home(request):
@@ -26,3 +28,7 @@ def product_details(request):
         products = Product.objects.filter(id = pid)
         context['products'] = products
     return render(request,'shop/product_details.html',context)
+
+
+
+

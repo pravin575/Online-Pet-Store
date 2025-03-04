@@ -34,6 +34,10 @@ urlpatterns = [
     path('',include('user.urls')),
     path('cart/',include('cart.urls')),
     path('order/',include('checkout.urls')),
+    path('reviews/', include('reviews.urls')),
+    path('complaints/', include('complaints.urls')),
+    path("returns/", include("returns.urls")),
+    path('tracking/', include('tracking.urls')),
     ]
 
 if settings.DEBUG:

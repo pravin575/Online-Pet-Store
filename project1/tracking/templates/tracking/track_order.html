@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Track Order</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form */
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Order Details */
+.order-details {
+    padding: 15px;
+    background: #e9ecef;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Status Colors */
+.status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.status.pending {
+    background-color: orange;
+    color: white;
+}
+
+.status.shipped {
+    background-color: blue;
+    color: white;
+}
+
+.status.delivered {
+    background-color: green;
+    color: white;
+}
+
+.status.cancelled {
+    background-color: red;
+    color: white;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <h2>Track Your Order</h2>
+    <form method="GET">
+        <label>Enter Order Number:</label>
+        <input type="text" name="order_number" required>
+        <button type="submit">Track</button>
+    </form>
+
+    {% if order %}
+        <h3>Order Details:</h3>
+        <p><strong>Order Number:</strong> {{ order.order_number }}</p>
+        <p><strong>Customer Name:</strong> {{ order.customer_name }}</p>
+        <p><strong>Status:</strong> {{ order.get_status_display }}</p>
+        <p><strong>Placed On:</strong> {{ order.created_at }}</p>
+    {% elif request.GET.order_number %}
+        <p style="color:red;">Order not found. Please check the number and try again.</p>
+    {% endif %}
+
+   <button><a href="http://127.0.0.1:8000/shop/home">Back Home</a></button> 
+</body>
+</html>

@@ -31,7 +31,6 @@ def order(request):
         Email=request.POST.get('email')
         address=request.POST.get('city') + request.POST.get('zip')
         full_name = Mark + Otto
-
         upper = string.ascii_uppercase
         num = string.digits
         all = upper + num
